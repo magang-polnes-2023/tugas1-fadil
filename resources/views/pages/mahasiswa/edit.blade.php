@@ -5,6 +5,21 @@
     <hr>
     <form action="{{ route('mahasiswa.update', $mahasiswa->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @if ($errors->any())
+            <div class="alert alert-danger mt-3" role="alert" id="danger-alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            <script>
+                setTimeout(function() {
+                    var successAlert = document.getElementById('danger-alert');
+                    successAlert.style.display = 'none';
+                }, 5000);
+            </script>
+        @endif
         @method('PUT')
         <div class="row mb-3">
             <div class="col">
@@ -29,7 +44,7 @@
         <div class="row mb-3">
             <div class="col">
                 <div class="form-label">Umur</div>
-                <input type="text" name="umur" class="form-control" value="{{ $mahasiswa->umur}}">
+                <input type="text" name="umur" class="form-control" value="{{ $mahasiswa->umur}}" inputmode="numeric" pattern="[0-9]*">
             </div>
             <div class="col">
                 <div class="form-label">Tanggal Lahir</div>

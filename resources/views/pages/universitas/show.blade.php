@@ -23,7 +23,7 @@
                             Alamat          : {!! $universitas->alamat !!}
                         </p>
                         <div class="d-grid">
-                            <button onclick="history.back()" class="btn btn-secondary">Kembali</button>
+                            <a href="{{ route('universitas.index') }}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </div>
                 </div>

@@ -33,11 +33,11 @@ class ControllerMahasiswa extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'nim' => 'required',
-            'no_telp' => 'required',
-            'umur' => 'required',
+            'nim' => 'required|numeric|unique:mahasiswa',
+            'no_telp' => 'required|numeric',
+            'umur' => 'required|numeric',
             'alamat' => 'required',
-            'tanggal_lahir' => 'required',
+            'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
             'foto' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
@@ -91,11 +91,11 @@ class ControllerMahasiswa extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'nim' => 'required',
-            'no_telp' => 'required',
-            'umur' => 'required',
+            'nim' => 'required|numeric|unique:mahasiswa',
+            'no_telp' => 'required|numeric',
+            'umur' => 'required|numeric',
             'alamat' => 'required',
-            'tanggal_lahir' => 'required',
+            'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
             'foto' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);

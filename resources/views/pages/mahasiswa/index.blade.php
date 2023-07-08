@@ -7,9 +7,15 @@
     <hr>
     <a href="{{ route('mahasiswa.create') }}" class="btn btn-primary">Tambah Data</a>
         @if(Session::has('success'))
-            <div class="alert alert-success mt-3" role="alert">
+            <div id="success-alert" class="alert alert-success mt-3" role="alert">
                 {{ Session::get('success') }}
             </div>
+            <script>
+                setTimeout(function() {
+                    var successAlert = document.getElementById('success-alert');
+                    successAlert.style.display = 'none';
+                }, 5000);
+            </script>
         @endif
     <table class="table table-hover mt-3">
         <thead class="table-dark" >

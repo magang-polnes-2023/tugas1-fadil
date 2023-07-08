@@ -19,7 +19,7 @@
                             No_Telp         : {!! $mahasiswa->no_telp !!}
                         </p>
                         <p class="tmt-3">
-                            Umur            : {!! $mahasiswa->umur !!}
+                            Umur            : {!! $mahasiswa->umur !!} Tahun
                         </p>
                         <p class="tmt-3">
                             Tanggal Lahir   : {!! $mahasiswa->tanggal_lahir !!}
@@ -31,7 +31,7 @@
                             Alamat          : {!! $mahasiswa->alamat !!}
                         </p>
                         <div class="d-grid">
-                            <button onclick="history.back()" class="btn btn-secondary">Kembali</button>
+                            <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </div>
                 </div>
