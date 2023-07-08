@@ -91,7 +91,7 @@ class ControllerMahasiswa extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'nim' => 'required|numeric|unique:mahasiswa',
+            'nim' => 'required|numeric',
             'no_telp' => 'required|numeric',
             'umur' => 'required|numeric',
             'alamat' => 'required',
