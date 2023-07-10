@@ -112,5 +112,4 @@ class Controlleruniversitas extends Controller
 
         return redirect()->route('universitas.index')->with(['success' => 'Data Berhasil di Hapus!']);
     }
-
 }
