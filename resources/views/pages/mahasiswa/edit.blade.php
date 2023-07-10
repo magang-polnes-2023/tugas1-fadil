@@ -42,22 +42,22 @@
                     @endforeach
                 </select>
             </div>
-        </div>
-        <div class="row mb-3">
             <div class="col">
                 <div class="form-label">Nim</div>
                 <input type="text" name="nim" class="form-control" value="{{ $mahasiswa->nim}}">
             </div>
+        </div>
+        <div class="row mb-3">
             <div class="col">
                 <div class="form-label">No Telp</div>
                 <input type="text" name="no_telp" class="form-control" value="{{ $mahasiswa->no_telp}}">
             </div>
-        </div>
-        <div class="row mb-3">
             <div class="col">
                 <div class="form-label">Umur</div>
                 <input type="text" name="umur" class="form-control" value="{{ $mahasiswa->umur}}" inputmode="numeric" pattern="[0-9]*">
             </div>
+        </div>
+        <div class="row mb-3">
             <div class="col">
                 <div class="form-label">Tanggal Lahir</div>
                 <input type="date" name="tanggal_lahir" class="form-control" value="{{ $mahasiswa->tanggal_lahir}}">
@@ -73,8 +73,6 @@
                     tanggalLahirInput.style.display = 'none'; // Sembunyikan elemen input
                 }
             </script>
-        </div>
-        <div class="row mb-3">
             <div class="col">
             <div class="form-label">Jenis Kelamin</div>
                 <div class="form-check">
@@ -86,6 +84,8 @@
                     <label class="form-check-label" for="flexRadioDefault2">Perempuan</label>
                 </div>
             </div>
+        </div>
+        <div class="row mb-3">
             <div class="col">
                 <div class="form-label">Alamat</div>
                 <textarea class="form-control" name="alamat" placeholder="Alamat">{{ $mahasiswa->alamat}}</textarea>
