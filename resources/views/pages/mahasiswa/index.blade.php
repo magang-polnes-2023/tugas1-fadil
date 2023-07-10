@@ -6,7 +6,7 @@
     </div>
     <hr>
     <a href="{{ route('mahasiswa.create') }}" class="btn btn-primary">Tambah Data</a>
-        @if(Session::has('success'))
+        @if(Session()->has('success'))
             <div id="success-alert" class="alert alert-success mt-3" role="alert">
                 {{ Session::get('success') }}
             </div>
@@ -23,8 +23,8 @@
                 <th>#</th>
                 <th>FotoProfile</th>
                 <th>Nama</th>
+                <th>Universitas</th>
                 <th>Nim</th>
-                <th>No Telp</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -37,8 +37,8 @@
                             <img src="{{ asset('/storage/posts/'.$mhs->foto) }}" class="rounded" style="width: 70px">
                         </td>
                         <td class="text-middle">{{ $mhs->nama }}</td>
+                        <td class="text-middle">{{ $mhs->universitas->nama }}</td>
                         <td class="text-middle">{{ $mhs->nim }}</td>
-                        <td class="text-middle">{{ $mhs->no_telp }}</td>
                         <td>
                             <form onsubmit="return confirm('Apakah Anda Yakin Untuk Menghapus Data?');" action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="POST">
                                 <a href="{{ route('mahasiswa.show', $mhs->id) }}" type="button" class="btn btn-sm btn-dark">SHOW</a>

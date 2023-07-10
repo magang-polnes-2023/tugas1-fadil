@@ -22,7 +22,7 @@
         @endif
         <div class="row mb-3">
             <div class="col">
-                <div class="form-label">Nama</div>
+                <div class="form-label">Nama Universitas</div>
                 <input type="text" name="nama" class="form-control">
             </div>
             <div class="col">

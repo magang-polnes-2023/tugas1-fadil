@@ -47,7 +47,7 @@ class Controlleruniversitas extends Controller
         ]);
 
         //redirect ke index
-        return redirect()->route('universitas.index')->with(['success', 'Data Berhasil Disimpan!']);
+        return redirect()->route('universitas.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**

@@ -32,6 +32,16 @@
         </div>
         <div class="row mb-3">
             <div class="col">
+                <div class="form-label">Pilih Universitas</div>
+                <select class="form-control select" name="universitas_id" id="universitas_id"> 
+                    @foreach ($univ as $univ)
+                    <option value="{{ $univ->id }}">{{ $univ->nama }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
                 <div class="form-label">Nim</div>
                 <input type="text" name="nim" class="form-control">
             </div>

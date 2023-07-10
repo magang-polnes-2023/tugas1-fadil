@@ -33,6 +33,18 @@
         </div>
         <div class="row mb-3">
             <div class="col">
+                <div class="form-label">Pilih Universitas</div>
+                <select class="form-control select" name="universitas_id" id="universitas_id"> 
+                    @foreach ($univ as $univItem)
+                        <option value="{{ $univItem->id }}" {{ $univItem->id == $mahasiswa->universitas_id ? 'selected' : '' }}>
+                            {{ $univItem->nama }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
                 <div class="form-label">Nim</div>
                 <input type="text" name="nim" class="form-control" value="{{ $mahasiswa->nim}}">
             </div>
