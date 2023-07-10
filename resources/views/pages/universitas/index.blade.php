@@ -24,6 +24,7 @@
                 <th>Nama</th>
                 <th>Email</th>
                 <th>Akreditasi</th>
+                <th>Nama Mahasiswa</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -35,6 +36,15 @@
                         <td class="text-middle">{{ $univ->nama }}</td>
                         <td class="text-middle">{{ $univ->email }}</td>
                         <td class="text-middle">{{ $univ->akreditasi }}</td>
+                        <td class="text-middle">
+                            <ul>
+                                @foreach($univ->mahasiswa as $univmhs)
+                                    <li>
+                                            {{ $univmhs->nama }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </td>
                         <td>
                             <form onsubmit="return confirm('Apakah Anda Yakin Untuk Menghapus Data?');" action="{{ route('universitas.destroy', $univ->id) }}" method="POST">
                                 <a href="{{ route('universitas.show', $univ->id) }}" type="button" class="btn btn-sm btn-dark">SHOW</a>
