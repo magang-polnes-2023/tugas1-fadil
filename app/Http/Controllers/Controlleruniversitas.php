@@ -13,7 +13,6 @@ class Controlleruniversitas extends Controller
     public function index()
     {
         $universitas = Universitas::with('mahasiswa')->latest()->paginate(5);
-
         return view('pages.universitas.index', compact('universitas'));
     }
 
