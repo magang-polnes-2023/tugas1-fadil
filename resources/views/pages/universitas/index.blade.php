@@ -17,6 +17,17 @@
                 }, 5000);
             </script>
         @endif 
+        @if(Session::has('error'))
+            <div id="success-alert" class="alert alert-danger mt-3" role="alert">
+                {{ Session::get('error') }}
+            </div>
+            <script>
+                setTimeout(function() {
+                    var successAlert = document.getElementById('success-alert');
+                    successAlert.style.display = 'none';
+                }, 5000);
+            </script>
+        @endif 
     <table class="table table-hover mt-3">
         <thead class="table-dark" >
             <tr>
@@ -47,10 +58,10 @@
                         </td>
                         <td>
                             <form onsubmit="return confirm('Apakah Anda Yakin Untuk Menghapus Data?');" action="{{ route('universitas.destroy', $univ->id) }}" method="POST">
-                                <a href="{{ route('universitas.show', $univ->id) }}" type="button" class="btn btn-sm btn-dark">SHOW</a>
-                                <a href="{{ route('universitas.edit', $univ->id) }}" type="button" class="btn btn-sm btn-primary">EDIT</a>
-                                @csrf
-                                @method('DELETE')
+                                    <a href="{{ route('universitas.show', $univ->id) }}" type="button" class="btn btn-sm btn-dark">SHOW</a>
+                                    <a href="{{ route('universitas.edit', $univ->id) }}" type="button" class="btn btn-sm btn-primary">EDIT</a>
+                                    @csrf
+                                    @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
                             </form>
                         </td>

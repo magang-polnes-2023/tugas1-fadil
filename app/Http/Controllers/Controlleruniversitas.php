@@ -45,7 +45,6 @@ class Controlleruniversitas extends Controller
             'akreditasi' => $request->akreditasi,
         ]);
 
-        //redirect ke index
         return redirect()->route('universitas.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
@@ -92,7 +91,6 @@ class Controlleruniversitas extends Controller
             'akreditasi' => $request->akreditasi,
         ]);
 
-        //redirect ke index
         return redirect()->route('universitas.index')->with(['success' => 'Data Berhasil Diupdate!']);
 
 
@@ -105,8 +103,14 @@ class Controlleruniversitas extends Controller
     {
         $universitas = Universitas::findOrFail($id);
 
+        // Cek jika ada mahasiswa terkait
+        if ($universitas->mahasiswa->count() > 0) {
+            return redirect()->route('universitas.index')->with(['error' => 'Data ini tidak dapat dihapus karena memiliki Mahasiswa terkait dan Mahasiswa harus memiliki Universitas.']);
+        }
+
         $universitas->delete();
 
-        return redirect()->route('universitas.index')-> with(['success' => 'Data Berhasil di Hapus!']);
+        return redirect()->route('universitas.index')->with(['success' => 'Data Berhasil di Hapus!']);
     }
+
 }
