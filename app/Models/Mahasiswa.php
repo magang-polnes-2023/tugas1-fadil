@@ -13,6 +13,7 @@ class Mahasiswa extends Model
 
     protected $fillable = [
         'nama',
+        'universitas_id',
         'nim',
         'no_telp',
         'umur',
@@ -21,4 +22,9 @@ class Mahasiswa extends Model
         'jenis_kelamin',
         'foto'
     ];
+
+    public function universitas()
+    {
+        return $this->belongsTo(Universitas::class);
+    }
 }

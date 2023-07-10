@@ -11,24 +11,27 @@
                     <div class="card-body text-center">
                         <img src="{{ asset('storage/posts/'.$mahasiswa->foto) }}" class="w-30 rounded">
                         <hr>
-                        <h4>Nama            : {{ $mahasiswa->nama }}</h4>
+                        <h4>Nama : {{ $mahasiswa->nama }}</h4>
                         <p class="tmt-3">
-                            Nim             : {!! $mahasiswa->nim !!}
+                            Nama Universitas : {!! $mahasiswa->universitas->nama !!}
                         </p>
                         <p class="tmt-3">
-                            No_Telp         : {!! $mahasiswa->no_telp !!}
+                            Nim : {!! $mahasiswa->nim !!}
                         </p>
                         <p class="tmt-3">
-                            Umur            : {!! $mahasiswa->umur !!} Tahun
+                            No_Telp : {!! $mahasiswa->no_telp !!}
                         </p>
                         <p class="tmt-3">
-                            Tanggal Lahir   : {!! $mahasiswa->tanggal_lahir !!}
+                            Umur : {!! $mahasiswa->umur !!} Tahun
                         </p>
                         <p class="tmt-3">
-                            Jenis Kelamin   : {!! $mahasiswa->jenis_kelamin !!}
+                            Tanggal Lahir : {!! $mahasiswa->tanggal_lahir !!}
                         </p>
                         <p class="tmt-3">
-                            Alamat          : {!! $mahasiswa->alamat !!}
+                            Jenis Kelamin : {!! $mahasiswa->jenis_kelamin !!}
+                        </p>
+                        <p class="tmt-3">
+                            Alamat : {!! $mahasiswa->alamat !!}
                         </p>
                         <div class="d-grid">
                             <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>

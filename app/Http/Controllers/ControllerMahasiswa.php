@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
+use App\Models\Universitas;
 use Illuminate\Support\Facades\Storage;
 
 class ControllerMahasiswa extends Controller
@@ -13,7 +14,7 @@ class ControllerMahasiswa extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::latest()->paginate(5);
+        $mahasiswa = Mahasiswa::with('universitas')->latest()->paginate(5);
 
         return view('pages.mahasiswa.index', compact('mahasiswa'));
     }
@@ -23,7 +24,8 @@ class ControllerMahasiswa extends Controller
      */
     public function create()
     {
-        return view('pages.mahasiswa.create');
+        $univ = Universitas::all();
+        return view('pages.mahasiswa.create', compact('univ'));
     }
 
     /**
@@ -33,6 +35,7 @@ class ControllerMahasiswa extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
+            'universitas_id' => 'required',
             'nim' => 'required|numeric|unique:mahasiswa',
             'no_telp' => 'required|numeric',
             'umur' => 'required|numeric',
@@ -50,6 +53,7 @@ class ControllerMahasiswa extends Controller
         // create post
         Mahasiswa::create([
             'nama' => $request->nama,
+            'universitas_id' => $request->universitas_id,
             'nim' => $request->nim,
             'no_telp' => $request->no_telp,
             'umur' => $request->umur,
@@ -61,7 +65,7 @@ class ControllerMahasiswa extends Controller
         ]);
 
         //redirect ke index
-        return redirect()->route('mahasiswa.index')->with(['success', 'Data Berhasil Disimpan!']);
+        return redirect()->route('mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -70,8 +74,8 @@ class ControllerMahasiswa extends Controller
     public function show(string $id)
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
-
-        return view('pages.mahasiswa.show', compact('mahasiswa'));
+        $univ = Universitas::all();
+        return view('pages.mahasiswa.show', compact('mahasiswa', 'univ'));
     }
 
     /**
@@ -80,8 +84,8 @@ class ControllerMahasiswa extends Controller
     public function edit(string $id)
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
-
-        return view('pages.mahasiswa.edit', compact('mahasiswa'));
+        $univ = Universitas::all();
+        return view('pages.mahasiswa.edit', compact('mahasiswa', 'univ'));
     }
 
     /**
@@ -91,6 +95,7 @@ class ControllerMahasiswa extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
+            'universitas_id' => 'required',
             'nim' => 'required|numeric',
             'no_telp' => 'required|numeric',
             'umur' => 'required|numeric',
@@ -111,6 +116,7 @@ class ControllerMahasiswa extends Controller
 
             $mahasiswa->update([
                 'nama' => $request->nama,
+                'universitas_id' => $request->universitas_id,
                 'nim' => $request->nim,
                 'no_telp' => $request->no_telp,
                 'umur' => $request->umur,
